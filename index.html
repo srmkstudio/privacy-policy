@@ -868,9 +868,9 @@
       <div class="content" id="contact-body">
         <p>If you have any questions about this Privacy Policy, please contact us:</p>
       </div>
-      <a href="/cdn-cgi/l/email-protection#a9dadbc4c2dadddccdc0c6e9cec4c8c0c587cac6c4" class="email-chip">
+      <a id="contact-email" href="#" class="email-chip">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        <span class="__cf_email__" data-cfemail="6f1c1d02041c1b1a0b06002f08020e0603410c0002">[email&#160;protected]</span>
+        <span id="contact-email-text"></span>
       </a>
     </div>
 
@@ -948,6 +948,17 @@
       if (browserLang.startsWith('zh')) setLang('zh');
       else if (browserLang.startsWith('ja')) setLang('ja');
       else if (browserLang.startsWith('ko')) setLang('ko');
+    })();
+
+    // Build email via JS to prevent Cloudflare email-protection mangling
+    (function() {
+      var u = 'srmk.studio';
+      var d = 'gmail.com';
+      var email = u + '@' + d;
+      var el = document.getElementById('contact-email');
+      var txt = document.getElementById('contact-email-text');
+      if (el) el.href = 'mailto:' + email;
+      if (txt) txt.textContent = email;
     })();
   </script>
 
